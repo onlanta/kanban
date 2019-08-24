@@ -14,6 +14,7 @@ import { CreateMigrationCommand } from './Database/Console/CreateMigrationComman
 import { MigrateCommand } from './Database/Console/MigrateCommand'
 import { MigrateUndoCommand } from './Database/Console/MigrateUndoCommand'
 import IssueController from './Project/Controller/IssueController'
+import fs from 'fs'
 
 export class Application {
     public http!: Express.Express
@@ -62,7 +63,16 @@ export class Application {
     protected runWebServer() {
         this.runCron()
         this.http = Express()
-        this.http.use('/public', Express.static('public'))
+        this.http.use('/', Express.static('vue/dist'))
+        this.http.use((req, res, next) => {
+            if (req.url.indexOf('/api') === -1) {
+                res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate')
+                res.header('Expires', '-1')
+                res.header('Pragma', 'no-cache')
+                return res.send(fs.readFileSync('vue/dist/index.html').toString())
+            }
+            next()
+        })
         this.http.use(Express.urlencoded())
         this.http.use(Express.json())
         this.http.listen(this.config.listen, () => console.log(`Listening on port ${this.config.listen}`))
