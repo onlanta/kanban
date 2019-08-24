@@ -1,0 +1,31 @@
+{
+    "name": "kanban",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "build": "tsc -p src",
+        "watch": "tsc -p src -w",
+        "vue-build": "cd vue && npm run build",
+        "vue-serve": "cd vue && npm run serve",
+        "lint": "eslint -c .eslintrc.json --ext .js,.ts src/"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "axios": "^0.19.0",
+        "express": "^4.17.1",
+        "pg": "^7.11.0",
+        "typeorm": "^0.2.18",
+        "vuedraggable": "^2.23.0"
+    },
+    "devDependencies": {
+        "@types/express": "^4.17.0",
+        "@types/luxon": "^1.15.2",
+        "@typescript-eslint/eslint-plugin": "^1.13.0",
+        "@typescript-eslint/parser": "^1.13.0",
+        "eslint": "^6.1.0",
+        "eslint-plugin-react": "^7.14.3",
+        "typescript": "^3.5.3"
+    }
+}

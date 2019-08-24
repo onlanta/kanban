@@ -1,0 +1,17 @@
+.kanbanView {
+    height: 100%;
+    min-height: 500px;
+}
+.kanbanView .kvColumn {
+    width: 20%;
+    height: 100%;
+    float: left;
+    box-sizing: border-box;
+    padding: 0 2px;
+}
+.kanbanView .kvColumn:first-child {
+    padding-left: 0;
+}
+.kanbanView .kvColumn:last-child {
+    padding-right: 0;
+}

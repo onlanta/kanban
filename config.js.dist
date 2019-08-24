@@ -1,0 +1,14 @@
+module.exports = {
+    listen: 37433,
+    logdir: 'logs',
+    db: {
+        name: 'db name',
+        user: 'db user',
+        password: 'db password',
+    },
+    gitlab: {
+        url: 'https://localhost',
+        token: 'dasdasd',
+        updateInterval: 60, // Seconds
+    },
+}

@@ -1,0 +1,33 @@
+.kvColumn {
+    font-size: 12px;
+}
+.kvColumn .kvcInner {
+    height: 100%;
+    border-radius: 6px;
+}
+.kvColumn h2 {
+    background: rgba(0, 0, 0, .1);
+    font-size: 14px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    line-height: 22px;
+    color: #333;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, .3);
+    padding: 0 5px;
+}
+.kvColumn .kvcLoading {
+    text-align: center;
+}
+.kvColumn .kvcIssues {
+    padding: 0 1px 0 4px;
+    height: calc(100% - 30px);
+    overflow-y: scroll;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+.kvColumn .kvcIssues::-webkit-scrollbar {
+    width: 3px;
+}
+.kvColumn .kvcIssues::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, .3);
+}

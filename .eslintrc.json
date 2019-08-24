@@ -1,0 +1,59 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true,
+        "node": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended"
+    ],
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
+    "parserOptions": {
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+    },
+    "rules": {
+        "indent": ["error", 4, { "SwitchCase": 1 }],
+        "@typescript-eslint/indent": ["error", 4, { "SwitchCase": 1 }],
+        "linebreak-style": ["error", "unix"],
+        "quotes": ["error", "single"],
+        "semi": ["error", "never"],
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": "error",
+        "no-undef": "off",
+        "object-curly-spacing": ["error", "always"],
+        "require-atomic-updates": "off",
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "@typescript-eslint/interface-name-prefix": ["error", "always"],
+        "@typescript-eslint/no-parameter-properties": "off",
+        "@typescript-eslint/member-delimiter-style": "off",
+        "no-trailing-spaces": "error",
+        "space-in-parens": "error",
+        "space-before-blocks": "error",
+        "spaced-comment": "error",
+        "space-infix-ops": "error",
+        "object-shorthand": "error",
+        "max-len": ["error", 140],
+        "keyword-spacing": "error",
+        "react/jsx-curly-spacing": ["error", "always"],
+        "comma-spacing": "error",
+        "space-unary-ops": "error",
+        "func-call-spacing": "error",
+        "no-multi-spaces": "error",
+        "no-whitespace-before-property": "error",
+        "space-before-function-paren": ["error", { "anonymous": "never", "named": "never", "asyncArrow": "always" }],
+        "comma-dangle": ["error", "always-multiline"],
+        "no-unreachable": "error",
+        "react/jsx-uses-vars": "error",
+        "key-spacing": "error"
+    },
+    "parser": "@typescript-eslint/parser",
+    "plugins": ["@typescript-eslint", "eslint-plugin-react"],
+    "root": true
+}
