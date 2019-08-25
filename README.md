@@ -16,6 +16,9 @@ module.exports = {
     listen: 37433, // Port on which web-application will be available
     logdir: 'logs', // Logdir
     db: {
+        type: 'postgres', // Sorry, but tested only on postgresql :-(
+        host: 'localhost',
+        port: 5432,
         name: 'db name', // DB name of Postgres
         user: 'db user', // username for DB
         password: 'db password', // password for DB
