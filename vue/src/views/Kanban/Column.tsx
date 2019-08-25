@@ -1,5 +1,5 @@
 import { Vue, Component, Prop, Watch } from 'vue-property-decorator'
-import draggable from 'vuedraggable'
+import Draggable from 'vuedraggable'
 import Issue from './Issue'
 import { CreateElement, VNode } from 'vue'
 import './Column.css'
@@ -8,7 +8,7 @@ interface IIssue {
     id: number
 }
 
-@Component({ components: { draggable, Issue } })
+@Component
 export default class extends Vue {
     @Prop()
     public title!: string
@@ -35,14 +35,14 @@ export default class extends Vue {
             if (this.issuesValue === null) {
                 return <div class="kvcLoading">Загрузка...</div>
             } else if (!this.disableDrag) {
-                return <draggable class="kvcIssues" vModel={ this.issuesValue } group={ { name: 'issues', pull: true, put: true } }
+                return <Draggable class="kvcIssues" vModel={ this.issuesValue } group={ { name: 'issues', pull: true, put: true } }
                     onEnd={ this.onDrag } onAdd={ this.onDrag }
                 >
-                    { this.issuesValue.map(i => <issue key={ i.id } issue={ i } />) }
-                </draggable>
+                    { this.issuesValue.map(i => <Issue key={ i.id } issue={ i } />) }
+                </Draggable>
             } else {
                 return <div class="kvcIssues noDrag">
-                    { this.issuesValue.map(i => <issue key={ i.id } issue={ i } />) }
+                    { this.issuesValue.map(i => <Issue key={ i.id } issue={ i } />) }
                 </div>
             }
         }

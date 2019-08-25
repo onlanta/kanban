@@ -57,7 +57,6 @@ export class IssueService extends AbstractService {
                 result.new.push(i)
             }
         }
-        result.done.sort((a, b) => b.updatedTimestamp - a.updatedTimestamp)
 
         return result
     }
