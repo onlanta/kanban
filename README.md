@@ -1,5 +1,5 @@
 # Kanban board for GitLab
-Simple kanban board for gitlab
+Simple kanban board for GitLab
 
 ## Installation
 ```
