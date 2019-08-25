@@ -61,7 +61,7 @@ export class Application {
     }
 
     protected runWebServer() {
-        this.runCron()
+        this.initCron()
         this.http = Express()
         this.http.use('/', Express.static('vue/dist'))
         this.http.use((req, res, next) => {
@@ -80,7 +80,7 @@ export class Application {
         this.initializeControllers()
     }
 
-    protected runCron() {
+    protected initCron() {
         if (this.config.gitlab.updateInterval) {
             setInterval(async () => {
                 if (!this.updateProjectsCommand) {
