@@ -39,7 +39,11 @@ export class Application {
     // Controllers
     public issueController!: IssueController
 
-    public constructor(public readonly config: IConfig) { }
+    public constructor(public readonly config: IConfig) {
+        if (config.columns.length < 2) {
+            throw new Error('There are too few columns :-(')
+        }
+    }
 
     public async run() {
         this.initializeServices()
