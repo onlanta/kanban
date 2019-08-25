@@ -26,7 +26,7 @@ export class User extends AbstractEntity {
         const hash = crypto.createHash('md5').update(this.username).digest()
         const result: number[] = []
         for (let i = 0; i < 3; i++) {
-            result.push(200 - hash[i] / 255 * 150)
+            result.push(Math.round(200 - hash[i] / 255 * 150))
         }
         return `rgb(${result.join(', ')})`
     }
