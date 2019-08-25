@@ -8,6 +8,7 @@ cd kanban
 npm run ci
 npm run build
 npm run vue-build
+chmod +x index.js
 cp config.js.dist config.js
 ```
 Then edit config.js, where:
@@ -38,4 +39,7 @@ module.exports = {
 }
 
 ```
-
+## Running
+```
+./index.js
+```
