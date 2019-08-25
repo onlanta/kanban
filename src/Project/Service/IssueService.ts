@@ -2,7 +2,6 @@ import { AbstractService } from '../../Base/Service/AbstractService'
 import { Issue } from '../Entity/Issue'
 import { MoreThanOrEqual } from 'typeorm'
 import { Project } from '../Entity/Project'
-import { isContext } from 'vm';
 
 export class IssueService extends AbstractService {
 
