@@ -22,7 +22,7 @@ module.exports = {
     },
     gitlab: {
         url: 'https://localhost', // GitLab address
-        token: 'dasdasd', // GitLab access token
+        token: 'dasdasd', // GitLab access token of admin user. You can obtain it on http://gitlab.address/profile/personal_access_tokens with scope "api"
         updateInterval: 60, // Interval between reciving updates from GitLab in seconds, 0 - disabled
     },
     columns: [
