@@ -2,6 +2,9 @@ module.exports = {
     listen: 37433,
     logdir: 'logs',
     db: {
+        type: 'postgres',
+        host: 'localhost',
+        port: 5432,
         name: 'db name',
         user: 'db user',
         password: 'db password',

@@ -8,9 +8,18 @@ export class DbService extends AbstractService {
 
     public constructor(app: Application) {
         super(app)
+        const type = app.config.db.type
+
+        if (!['mysql', 'mariadb', 'postgres', 'cockroachdb', 'sqlite', 'mssql', 'oracle', 'cordova', 'nativescript', 'react-native',
+            'sqljs', 'mongodb', 'expo'].includes(type)
+        ) {
+            throw new Error(`DB type ${type} is not supported`)
+        }
 
         createConnection({
-            type: 'postgres',
+            host: app.config.db.host,
+            port: app.config.db.port,
+            type: type as any,
             database: app.config.db.name,
             username: app.config.db.user,
             password: app.config.db.password,

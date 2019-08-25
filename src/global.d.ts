@@ -6,6 +6,9 @@ interface IConfig {
     listen: number
     logdir: string
     db: {
+        type: string
+        host: string
+        port: number
         name: string
         user: string
         password: string
