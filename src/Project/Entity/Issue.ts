@@ -34,7 +34,7 @@ export class Issue extends AbstractEntity {
     public executorId?: number|null
 
     @Column('varchar', { name: 'kanban_status' })
-    public kanbanStatus?: 'new'|'planed'|'working'|'checking'|'done'
+    public kanbanStatus?: string
 
     @Column('int', { name: 'kanban_order' })
     public kanbanOrder?: number

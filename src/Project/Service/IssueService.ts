@@ -2,6 +2,7 @@ import { AbstractService } from '../../Base/Service/AbstractService'
 import { Issue } from '../Entity/Issue'
 import { MoreThanOrEqual } from 'typeorm'
 import { Project } from '../Entity/Project'
+import { isContext } from 'vm';
 
 export class IssueService extends AbstractService {
 
@@ -33,29 +34,22 @@ export class IssueService extends AbstractService {
     }
 
     public async getKanban() {
-        const issues = await this.issueRepository.find({
+        let issues = await this.issueRepository.find({
             where: { updatedTimestamp: MoreThanOrEqual(new Date().getTimestamp() - 60 * 60 * 24 * 30) },
             order: { kanbanOrder: 'ASC', updatedTimestamp: 'DESC' },
         })
-        const result = {
-            new: [] as Issue[],
-            planed: [] as Issue[],
-            working: [] as Issue[],
-            checking: [] as Issue[],
-            done: [] as Issue[],
-        }
-        for (const i of issues) {
-            if (i.kanbanStatus === 'done' || i.closed) {
-                result.done.push(i)
-            } else if (i.kanbanStatus === 'planed') {
-                result.planed.push(i)
-            } else if (i.kanbanStatus === 'working') {
-                result.working.push(i)
-            } else if (i.kanbanStatus === 'checking') {
-                result.checking.push(i)
+        const keys = this.app.config.columns.map(c => c.key)
+        const result: { [key: string]: Issue[] } = {}
+        for (let ki = keys.length - 1; ki >= 0; ki--) {
+            const key = keys[ki]
+            if (ki === keys.length - 1) { // Закрытые задачи автоматом помещаем в последнюю колонку
+                result[key] = issues.filter(i => i.closed)
+            } else if (ki === 0) { // Всё, что осталось, добавляем в первую колонку, чтобы не потерялось
+                result[key] = issues
             } else {
-                result.new.push(i)
+                result[key] = issues.filter(i => i.kanbanStatus === key)
             }
+            issues = issues.filter(i => !result[key].includes(i)) // Убираем уже отфильтрованные задачи
         }
 
         return result

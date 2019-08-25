@@ -15,4 +15,5 @@ interface IConfig {
         token: string
         updateInterval: number
     },
+    columns: { key: string, title: string, color: string }[]
 }

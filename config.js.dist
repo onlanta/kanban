@@ -11,4 +11,11 @@ module.exports = {
         token: 'dasdasd',
         updateInterval: 60, // Seconds
     },
+    columns: [
+        { key: 'new', title: 'Новые', color: 'rgb(255, 255, 219)' },
+        { key: 'planned', title: 'Запланировано', color: 'rgb(236, 236, 191)' },
+        { key: 'working', title: 'В работе', color: 'rgb(253, 214, 162)' },
+        { key: 'checking', title: 'На проверке', color: 'rgb(162, 226, 253)' },
+        { key: 'done', title: 'Выполнено', color: 'rgb(162, 253, 200)' },
+    ],
 }
