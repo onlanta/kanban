@@ -8,7 +8,7 @@ cd kanban
 npm run ci
 npm run build
 npm run vue-build
-cp config.js.dist to config.js
+cp config.js.dist config.js
 ```
 Then edit config.js, where:
 ```

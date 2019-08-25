@@ -4,6 +4,7 @@
     "description": "",
     "main": "index.js",
     "scripts": {
+        "ci": "npm ci && cd vue && npm ci",
         "build": "tsc -p src",
         "watch": "tsc -p src -w",
         "vue-build": "cd vue && npm run build",
