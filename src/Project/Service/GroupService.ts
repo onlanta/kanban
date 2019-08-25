@@ -14,10 +14,10 @@ export class GroupService extends AbstractService {
                 group = this.groupRepository.create({
                     id: data.id,
                 })
-                group.name = data.name
-                group.url = data.web_url
-                await this.groupRepository.save(group)
             }
+            group.name = data.name
+            group.url = data.web_url
+            await this.groupRepository.save(group)
         }
     }
 
